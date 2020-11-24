@@ -1,2 +1,8 @@
 # python virtual environment
 .venv/
+
+# pytest files
+.pytest*/
+
+# pycache
+__pycache__/
