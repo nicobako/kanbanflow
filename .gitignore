@@ -6,3 +6,9 @@
 
 # pycache
 __pycache__/
+
+# my personal scratchpad folder
+scratchpad/
+
+# other python files
+*.egg-info
