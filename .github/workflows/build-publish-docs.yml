@@ -1,0 +1,40 @@
+
+name: Publish Docs to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy-docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install flake8 pytest
+        python -m pip install -e .
+        pip install sphinx nbsphinx
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Build documentation
+      run: |
+        sphinx-build doc/source doc/build -b html
+    - name: Publish documentation
+      run: |
+        cd doc/build
+        git config --global user.email "nicobako@gmail.com"
+        git config --global user.name "nicobako"
+        git init
+        git add .
+        git commit -m "build html pages for gh-pages branch"
+        git remote add origin https://nicobako:${{secrets.GITHUB_TOKEN}}@github.com/nicobako/kanbanflow.git
+        git push --force origin master:gh-pages
+
+

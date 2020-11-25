@@ -38,22 +38,5 @@ jobs:
     - name: Test with pytest
       run: |
         pytest .
-    - name: Build documentation
-      run: |
-        # install sphinx and doctools
-        sudo apt-get install -y pandoc
-        pip install sphinx nbsphinx
-        # run sphinx-build
-        sphinx-build doc/source doc/build -b html
-    - name: Publish documentation
-      run: |
-        cd doc/build
-        git config --global user.email "nicobako@gmail.com"
-        git config --global user.name "nicobako"
-        git init
-        git add .
-        git commit -m "build html pages for gh-pages branch"
-        git remote add origin https://nicobako:${{secrets.GITHUB_TOKEN}}@github.com/nicobako/kanbanflow.git
-        git push --force origin master:gh-pages
 
 
