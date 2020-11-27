@@ -10,4 +10,5 @@ setup(
     author="Nico Bakomihalis",
     author_email="nicobako@gmail.com",
     packages=find_packages(),
+    url="https://nicobako.github.io/kanbanflow/",
 )
