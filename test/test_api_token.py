@@ -2,6 +2,11 @@ import pytest
 import kanbanflow as kbf
 
 
+def test_token_file_exists():
+    # tokens should be stored in a token file
+    assert kbf.token_file.exists()
+
+
 def test_store_api_token():
     # given a token
     token = "sample-token"
@@ -9,15 +14,16 @@ def test_store_api_token():
     name = "Sample Token"
 
     # when we store that token
-    kbf.store_token(name=name, token=token)
+    kbf.token_store(name=name, token=token)
 
     # then we should be able to retrieve the token by name
-    retrieved_token = kbf.retrieve_token(name=name)
+    retrieved_token = kbf.token_retrieve(name=name)
 
     assert retrieved_token == token
 
-    # and token should be stored in file in home directory
+    # and when we delete that token
+    kbf.token_delete(name=name)
 
-    kanbanflow_token_file = kbf.token_file
-
-    assert kanbanflow_token_file.exists()
+    # that token should no longer exist
+    with pytest.raises(Exception):
+        kbf.token_retrieve(name=name)

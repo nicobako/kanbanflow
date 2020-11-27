@@ -1,1 +1,1 @@
-from .token import token_file, store_token, retrieve_token
+from .token import token_file, token_store, token_retrieve, token_delete
