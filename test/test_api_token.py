@@ -1,6 +1,7 @@
 import pytest
 import kanbanflow as kbf
 
+
 def test_store_api_token():
     # given a token
     token = "sample-token"
