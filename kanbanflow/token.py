@@ -4,7 +4,7 @@ import json
 token_file = Path.home() / ".kanbanflow/token.json"
 
 if not token_file.exists():
-    token_file.parent.mkdir(parents=True)
+    token_file.parent.mkdir(parents=True, exist_ok=True)
     with open(token_file, "w") as tf:
         json.dump({}, tf)
 
