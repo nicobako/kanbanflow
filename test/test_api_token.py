@@ -25,5 +25,5 @@ def test_store_api_token():
     kbf.token_delete(name=name)
 
     # that token should no longer exist
-    with pytest.raises(Exception):
+    with pytest.raises(KeyError):
         kbf.token_retrieve(name=name)
