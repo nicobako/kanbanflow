@@ -28,13 +28,13 @@ jobs:
         sphinx-build doc/source doc/build -b html
     - name: Publish documentation
       run: |
+        echo $GITHUB_CONTEXT
         cd doc/build
-        git config --global user.email "nicobako@gmail.com"
-        git config --global user.name "nicobako"
+        git config --global user.name ${{github.actor}}
         git init
         git add .
         git commit -m "build html pages for gh-pages branch"
-        git remote add origin https://nicobako:${{secrets.GITHUB_TOKEN}}@github.com/nicobako/kanbanflow.git
+        git remote add origin https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git
         git push --force origin master:gh-pages
 
 
