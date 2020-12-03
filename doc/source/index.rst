@@ -10,6 +10,9 @@ Welcome to kanbanflow's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   tutorial/index
+
+
 
 
 Indices and tables
