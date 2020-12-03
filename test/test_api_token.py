@@ -2,11 +2,6 @@ import pytest
 import kanbanflow as kbf
 
 
-def test_token_file_exists():
-    # tokens should be stored in a token file
-    assert kbf.token_file.exists()
-
-
 def test_api_token():
     # given a token
     token = "sample-token"
