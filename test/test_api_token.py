@@ -7,7 +7,7 @@ def test_token_file_exists():
     assert kbf.token_file.exists()
 
 
-def test_store_api_token():
+def test_api_token():
     # given a token
     token = "sample-token"
     # and a name for that tokn
@@ -27,3 +27,12 @@ def test_store_api_token():
     # that token should no longer exist
     with pytest.raises(KeyError):
         kbf.token_retrieve(name=name)
+
+    # and when we restore that token
+    kbf.token_store(name=name, token=token)
+
+    # and we get a list of tokens
+    tokens_list = kbf.token_list()
+
+    # we should get a list of tokens
+    assert name in tokens_list
