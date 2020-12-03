@@ -25,11 +25,11 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Build documentation
       run: |
+        ipython kernel install --user --name=kanbanflow-venv
         sphinx-build doc/source doc/build -b html
     - name: Publish documentation
       run: |
         echo $GITHUB_CONTEXT
-        ipython kernel install --user --name=kanbanflow-venv
         cd doc/build
         git config --global user.name ${{github.actor}}
         git init
