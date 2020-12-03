@@ -23,6 +23,7 @@ jobs:
         python -m pip install -e .
         pip install sphinx nbsphinx
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        sudo apt-get install -y pandoc
     - name: Build documentation
       run: |
         ipython kernel install --user --name=kanbanflow-venv
