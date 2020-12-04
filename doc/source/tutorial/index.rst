@@ -5,4 +5,4 @@ Tutorial
    :maxdepth: 2
    :caption: Contents:
 
-   api-tokens
+   managing-api-tokens

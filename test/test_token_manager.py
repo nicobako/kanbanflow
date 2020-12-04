@@ -67,3 +67,9 @@ def test_token_manager(token_manager):
 
     # then the token should no longer exist
     assert name not in token_manager.names()
+
+    # and when I clear the token manager
+    token_manager.clear()
+
+    # then there should be no more tokens
+    assert 0 == len(token_manager.names())

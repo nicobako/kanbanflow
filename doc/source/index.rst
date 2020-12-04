@@ -11,6 +11,7 @@ Welcome to kanbanflow's documentation!
    :caption: Contents:
 
    tutorial/index
+   api
 
 
 

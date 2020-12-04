@@ -8,23 +8,22 @@ Tokens = Dict[str, str]
 
 
 class TokenManager:
-    """API token manager."""
+    """API token manager.
+
+    The TokenManager class is a simple way of storing API tokens.
+    It is similar to a simple password manager.
+    A name is associated with every API token,
+    and API tokens are stored and retrieved by their name.
+
+    Parameters
+    ----------
+    token_file: Optional Path
+        An optional path to store the tokens in.
+        Defaults to ``~/.kanbanflow/tokens.json``.
+    """
 
     def __init__(self, token_file: Optional[Path] = None):
-        """Construct a TokenManager.
-
-        The TokenManager class is a simple way of storing API tokens.
-        It is similar to a simple password manager.
-        A name is associated with every API token,
-        and API tokens are stored and retrieved by their name.
-
-        Parameters
-        ----------
-        token_file: Optional Path
-            An optional path to store the tokens in.
-            Defaults to ``~/.kanbanflow/tokens.json``.
-
-        """
+        """Construct a TokenManager."""
         self._tokens: Tokens = {}
 
         if token_file is None:
