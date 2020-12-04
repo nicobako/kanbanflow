@@ -23,7 +23,7 @@ def token_manager(token_file):
 
     # the token file should be stored correctly
     assert token_file == token_manager.token_file
-    
+
     # tests should revert the token manager back to its original state
     original_names = token_manager.names()
 
@@ -67,4 +67,3 @@ def test_token_manager(token_manager):
 
     # then the token should no longer exist
     assert name not in token_manager.names()
-

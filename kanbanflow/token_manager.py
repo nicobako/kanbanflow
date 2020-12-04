@@ -90,7 +90,7 @@ class TokenManager:
         self._load_tokens()
         return self._tokens[name]
 
-    def remove(self, name:str):
+    def remove(self, name: str):
         """Remove a token"""
         self._load_tokens()
         self._tokens.pop(name)
