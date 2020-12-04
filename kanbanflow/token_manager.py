@@ -91,7 +91,7 @@ class TokenManager:
         return self._tokens[name]
 
     def remove(self, name: str):
-        """Remove a token"""
+        """Remove a token by name."""
         self._load_tokens()
         self._tokens.pop(name)
         self._write_tokens()
