@@ -12,3 +12,10 @@ scratchpad/
 
 # other python files
 *.egg-info
+
+# jupyter notebook folder
+.ipynb_checkpoints/
+debug.log
+
+# documentation build folder
+doc/build
