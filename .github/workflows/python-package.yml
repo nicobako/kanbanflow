@@ -39,6 +39,7 @@ jobs:
       run: |
         black kanbanflow/ --check
         pydocstyle kanbanflow/ --count
+        mypy kanbanflow/
     - name: Test with pytest
       run: |
         pytest .
