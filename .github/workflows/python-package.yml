@@ -42,6 +42,7 @@ jobs:
         mypy kanbanflow/
     - name: Test with pytest
       run: |
+        python -c 'import kanbanflow as kbf; tm = kbf.TokenManager(); tm.store("kanbanflow-test-board", "${{secrets.kanbanflow_test_board_api_token}}")"'
         pytest . --cov kanbanflow/ --cov-fail-under 100
 
 
