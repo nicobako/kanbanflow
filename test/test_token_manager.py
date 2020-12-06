@@ -18,18 +18,23 @@ def token_file(request):
 
 @pytest.fixture()
 def token_manager(token_file):
-    # Given a token manager
+    # Given a desired token file that does not exist
+    assert not token_file.exists()
+
+    # when we create a token manager with that file
     token_manager = kbf.TokenManager(token_file)
 
     # the token file should be stored correctly
     assert token_file == token_manager.token_file
 
-    # tests should revert the token manager back to its original state
-    original_names = token_manager.names()
+    # and the token file should exist
+    assert token_manager.token_file.exists()
 
-    yield token_manager
+    # and it should not be the default token file
+    # since we don't want tests to corrput the
+    assert kbf.TokenManager().token_file != token_manager.token_file
 
-    assert original_names == token_manager.names()
+    return token_manager
 
 
 def test_token_manager(token_manager):
