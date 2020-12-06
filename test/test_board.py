@@ -28,6 +28,10 @@ def test_board():
                 {"name": "Magenta", "value": "magenta"},
                 {"name": "Cyan", "value": "cyan"},
             ],
+            "swimlanes": [
+                {"uniqueId": "sOgu8h57TiP1", "name": "top"},
+                {"uniqueId": "sPqYCUNLhjEf", "name": "bottom"},
+            ],
         }
     )
     assert board == expected_board
