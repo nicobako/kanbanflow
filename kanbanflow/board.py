@@ -2,12 +2,13 @@
 
 from .base_model import BaseModel
 from typing import List, Optional
+import pydantic
 
 
 class Entry(BaseModel):
     """An item with a name and unique id."""
 
-    unique_id: str
+    id: str = pydantic.Field(alias="uniqueId")
     name: str
 
 
