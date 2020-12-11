@@ -1,8 +1,11 @@
 # python virtual environment
 .venv/
 
-# pytest files
-.pytest*/
+# pytest folder
+.pytest_cache/
+
+#pytest-cov file
+.coverage
 
 # pycache
 __pycache__/
@@ -13,9 +16,15 @@ scratchpad/
 # other python files
 *.egg-info
 
-# jupyter notebook folder
+# jupyter notebook folder and files
 .ipynb_checkpoints/
 debug.log
+Untitled*.ipynb
 
 # documentation build folder
 doc/build
+
+# mypy folder
+.mypy_cache/
+
+# any

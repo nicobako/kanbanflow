@@ -4,16 +4,11 @@ import kanbanflow as kbf
 
 @pytest.fixture
 def task_id() -> str:
-    return
+    return "ut8vFak3"
 
 
-def test_task():
-    task_id = "ut8vFak3"
-
-    token = kbf.TokenManager().retrieve("kanbanflow-test-board")
-    session = kbf.Session(token)
-
-    task = session.get_task(id=task_id)
+def test_task(kbf_session, task_id):
+    task = kbf_session.get_task(id=task_id)
     expected_task = kbf.Task.parse_obj(
         {
             "_id": "ut8vFak3",

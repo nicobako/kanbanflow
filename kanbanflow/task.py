@@ -1,13 +1,19 @@
 from .base_model import BaseModel
 from typing import Optional
+from datetime import date
 
 
 class Task(BaseModel):
     id: str
     name: str
+    column_id: str
     description: str
     color: str
-    column_id: str
     total_seconds_estimate: int
     total_seconds_spent: int
     swimlane_id: Optional[str]
+    position: Optional[int]
+    number: Optional[int]
+    responsible_user_id: Optional[str]
+    points_estimate: Optional[float]
+    grouping_date: Optional[date]

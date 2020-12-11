@@ -24,12 +24,15 @@ class TokenManager:
 
     def __init__(self, token_file: Path = Path.home() / ".kanbanflow/tokens.json"):
         """Construct a TokenManager."""
-        self._tokens: Tokens = {}
 
         self.token_file = Path(token_file)
 
+        self._tokens: Tokens = {}
+
         if not self.token_file.exists():
             self._create_file()
+        else:
+            self._load_tokens()
 
     def _create_file(self):
         """Create the token file if it doesn't exist."""
