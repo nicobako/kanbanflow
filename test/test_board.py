@@ -3,7 +3,7 @@ import kanbanflow as kbf
 
 
 def test_board(kbf_session):
-    board = kbf_session.board()
+    board = kbf_session.board
     expected_board = kbf.Board.parse_obj(
         {
             "_id": "yM2tQft",

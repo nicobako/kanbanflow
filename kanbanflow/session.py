@@ -2,7 +2,7 @@
 
 import requests
 from requests.auth import HTTPBasicAuth
-from typing import Optional
+from typing import Optional, Any
 from .board import Board, Column, Swimlane
 from .task import Task
 
@@ -24,10 +24,15 @@ class Session:
     def board(self):
         return self._board
 
-    
+    def _get(self, url:str)->requests.Request:
+        return requests.get(url=url, auth=self._auth)
+
+    def _post(self, url:str, data:Any)->requests.Response:
+        return requests.post(url=url, data=data, auth=self._auth)
+
     def _get_board(self) -> Board:
         """Retrieve the board."""
-        board_req = requests.get(self._board_url, auth=self._auth)
+        board_req = self._get(self._board_url)
         return Board.parse_obj(board_req.json())
 
 
@@ -35,8 +40,9 @@ class Session:
         """Retrive one task."""
 
         task_url = f"{self._task_url}/{id}"
-        task_req = requests.get(task_url, auth=self._auth)
-        return Task.parse_obj(task_req.json())
+        task_req = self._get(task_url)
+        task_json = task_req.json()
+        return Task.parse_obj(task_json)
 
     def create_task(self, name:str, column:Column, swimlane:Optional[Swimlane]=None)->str:
         """Create a task."""
@@ -51,7 +57,7 @@ class Session:
 
         print("data", data)
 
-        post = requests.post(self._task_url, data=data, auth=self._auth)
+        post = self._post(self._task_url, data=data)
 
         task_id = post.json()["taskId"]
 
