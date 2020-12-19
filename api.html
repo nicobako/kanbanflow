@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Documentation &#8212; kanbanflow 0.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Managing API Tokens" href="tutorial/managing-api-tokens.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-kanbanflow">
+<span id="api-documentation"></span><h1>API Documentation<a class="headerlink" href="#module-kanbanflow" title="Permalink to this headline">¶</a></h1>
+<p>kanbanflow - Pythonic interface to the KanbanFlow API.</p>
+<dl class="py class">
+<dt id="kanbanflow.TokenManager">
+<em class="property">class </em><code class="sig-prename descclassname">kanbanflow.</code><code class="sig-name descname">TokenManager</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">token_file</span><span class="p">:</span> <span class="n">pathlib.Path</span> <span class="o">=</span> <span class="default_value">PosixPath('/home/runner/.kanbanflow/tokens.json')</span></em><span class="sig-paren">)</span><a class="headerlink" href="#kanbanflow.TokenManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>API token manager.</p>
+<p>The TokenManager class is a simple way of storing API tokens.
+It is similar to a simple password manager.
+A name is associated with every API token,
+and API tokens are stored and retrieved by their name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>token_file</strong> (<em>Optional Path</em>) – An optional path to store the tokens in.
+Defaults to <code class="docutils literal notranslate"><span class="pre">~/.kanbanflow/tokens.json</span></code>.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="kanbanflow.TokenManager.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#kanbanflow.TokenManager.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear any stored tokens.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="kanbanflow.TokenManager.names">
+<code class="sig-name descname">names</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>str<span class="p">]</span><a class="headerlink" href="#kanbanflow.TokenManager.names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of all stored names.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="kanbanflow.TokenManager.remove">
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#kanbanflow.TokenManager.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a token by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="kanbanflow.TokenManager.retrieve">
+<code class="sig-name descname">retrieve</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#kanbanflow.TokenManager.retrieve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve an API token.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – The name of the token to retrieve.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>KeyError if the name does not exist.</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="kanbanflow.TokenManager.store">
+<code class="sig-name descname">store</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">token</span></em><span class="sig-paren">)</span><a class="headerlink" href="#kanbanflow.TokenManager.store" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store a token.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name of the token to store.
+If this token already exists it gets reset.</p></li>
+<li><p><strong>token</strong> (<em>str</em>) – The API token.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">kanbanflow</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Documentation</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="tutorial/managing-api-tokens.html" title="previous chapter">Managing API Tokens</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Nico Bakomihalis.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
