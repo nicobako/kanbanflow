@@ -1,6 +1,11 @@
 from .base_model import BaseModel
-from typing import Optional
+from typing import Optional, List
 from datetime import date
+
+
+class Label(BaseModel):
+    name: str
+    pinned: bool
 
 
 class Task(BaseModel):
@@ -17,3 +22,4 @@ class Task(BaseModel):
     responsible_user_id: Optional[str]
     points_estimate: Optional[float]
     grouping_date: Optional[date]
+    labels: Optional[List[Label]]

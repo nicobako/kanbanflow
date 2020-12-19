@@ -13,12 +13,13 @@ def test_task(kbf_session, task_id):
         {
             "_id": "ut8vFak3",
             "name": "Sample task",
-            "description": "This is a sample task.",
+            "description": "This is an example of a sample task.",
             "color": "yellow",
             "columnId": "jFZt2lBzBuff",
             "totalSecondsSpent": 0,
             "totalSecondsEstimate": 0,
             "swimlaneId": "sOgu8h57TiP1",
+            "labels": [{"name": "Urgent", "pinned": "false"}],
         }
     )
 
