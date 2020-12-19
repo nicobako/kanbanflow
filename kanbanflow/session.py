@@ -24,17 +24,16 @@ class Session:
     def board(self):
         return self._board
 
-    def _get(self, url:str)->requests.Request:
+    def _get(self, url: str) -> requests.Request:
         return requests.get(url=url, auth=self._auth)
 
-    def _post(self, url:str, data:Any)->requests.Response:
+    def _post(self, url: str, data: Any) -> requests.Response:
         return requests.post(url=url, data=data, auth=self._auth)
 
     def _get_board(self) -> Board:
         """Retrieve the board."""
         board_req = self._get(self._board_url)
         return Board.parse_obj(board_req.json())
-
 
     def get_task(self, *, id: str):
         """Retrive one task."""
@@ -44,12 +43,14 @@ class Session:
         task_json = task_req.json()
         return Task.parse_obj(task_json)
 
-    def create_task(self, name:str, column:Column, swimlane:Optional[Swimlane]=None)->str:
+    def create_task(
+        self, name: str, column: Column, swimlane: Optional[Swimlane] = None
+    ) -> str:
         """Create a task."""
 
         data = {
-            "name":name,
-            "columnId":column.id,
+            "name": name,
+            "columnId": column.id,
         }
 
         if swimlane:
